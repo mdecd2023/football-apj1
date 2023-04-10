@@ -2,7 +2,7 @@
         <head>
         <title>apj1</title>
         <meta charset="utf-8">
-<meta property="head" content="H1">
+<meta property="head" content="H2">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700,900" rel="stylesheet">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
@@ -141,11 +141,48 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content"> <a href='足球場景.html'>Next</a> >> 足球場景<br /><h1>About</h1>
-<p>網站: <a href="https://mdecd2023.github.io/football-apj1">https://mdecd2023.github.io/football-apj1</a><span><span> </span></span></p>
-<p><span>倉儲:<span> </span></span><a href="https://github.com/mdecd2023/football-apj1">https://github.com/mdecd2023/football-apj1</a></p>
-<p><span>討論區: </span><a href="https://github.com/mdecd2023/football-apj1/discussions">https://github.com/mdecd2023/football-apj1/discussions</a></p>
-<br /> <a href='足球場景.html'>Next</a> >> 足球場景</div>
+    <div id="tipue_search_content">評分 << <a href='評分.html'>Previous</a> <br /><h1>ag8</h1>
+<!-- 建立 Brython 環境 -->
+<p id="brython_div"></p>
+<script src="./../cmsimde/static/brython.js"></script>
+<script src="./../cmsimde/static/brython_stdlib.js"></script>
+<script>
+window.onload=function(){
+brython({debug:1, pythonpath:['./../cmsimde/static/']});
+}
+</script>
+<p id="output"></p>
+<script type="text/python">
+# 從 browser 模組導入 html 與 document
+# html 用於建立 html 物件, 而 document 則可對應到網頁元件
+from browser import html, document
+import re
+# api 練習傳送結果的 gist url
+api_result_url = "https://gist.githubusercontent.com/mdecycu/92a2f2d8389aeeca986ecb9f7a901180/raw/a9fcd1d1f33d892c8a1f30102262a3269475741f/2a_w6-2_python_remote_api_result.txt"
+# 從 studlist 倉儲取得的學號與帳號對應連結
+stud_github_url = "https://mde.tw/studlist/2023spring/2a.txt"
+api_result = open(api_result_url).read().split("\n")
+output = document["output"]
+group = []
+for i in api_result:
+    try:
+        if "虛擬世界" not in i:
+            num = re.findall('\d+', i )
+            if num[0] != "":
+                #output <= str(num[0])
+                #output <= html.BR()
+                group.append(int(num[0]))
+    except:
+        pass
+    
+stud_github = open(stud_github_url).read().split("\n")
+for i in stud_github:
+    output <= i
+    output <= html.BR()
+output <= "完成 remote API 連線的 2a 組別"
+output <= html.BR()
+output <= str(sorted(list(set(group))))
+</script><br />評分 << <a href='評分.html'>Previous</a> </div>
         
     <!-- footer -->
       <div class="container">
