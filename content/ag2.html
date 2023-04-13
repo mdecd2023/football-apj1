@@ -144,7 +144,67 @@ img.add_border {
     <div id="tipue_search_content">pj1 << <a href='pj1.html'>Previous</a> <br /><h1>ag2</h1>
 <p>2a-pj1ag2組員:41023146洪偉陞、41023148夏進源</p>
 <p>pj1倉儲:<a href="https://github.com/mdecd2023/2a-pj1ag2">https://github.com/mdecd2023/2a-pj1ag2</a></p>
-<p>pj1網頁:<a href="https://mdecd2023.github.io/2a-pj1ag2/content/index.html">https://mdecd2023.github.io/2a-pj1ag2/content/index.html</a></p><br />pj1 << <a href='pj1.html'>Previous</a> </div>
+<p>pj1網頁:<a href="https://mdecd2023.github.io/2a-pj1ag2/content/index.html">https://mdecd2023.github.io/2a-pj1ag2/content/index.html</a></p>
+<p>bubbleRob足球遊戲</p>
+<p>1.先繪製球框(<a href="./../downloads/ag2_downloads/ball frame.7z">ball frame.7z</a>)</p>
+<p><img alt="" height="300" src="./../downloads/ag2_downloads/2023-03-27.png" width="500"/></p>
+<p>2.使用鍵盤控制<a href="./../downloads/ag2_downloads/bubbleRob_lua.ttt">bubbleRob</a></p>
+<pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">function sysCall_init()  
+    right_wheel= sim.getObjectHandle('joint1') 
+    left_wheel= sim.getObjectHandle('joint2') 
+    right_velocity=0 
+    left_velocity=0
+    speed=5
+    sim.setJointTargetVelocity(right_wheel,0)
+    sim.setJointTargetVelocity(left_wheel,0)
+ 
+end
+  
+function sysCall_actuation()  
+    message,auxiliaryData=sim.getSimulatorMessage() 
+    while message~=-1 do
+        if (message==sim.message_keypress) then
+            
+            if (auxiliaryData[1]==32) then
+
+                right_velocity=0 
+                left_velocity=0 
+                sim.setJointMaxForce(right_wheel, 0) 
+                sim.setJointMaxForce(left_wheel, 0) 
+                break
+            else
+                sim.setJointMaxForce(right_wheel, 10) 
+                sim.setJointMaxForce(left_wheel, 10)
+            
+            
+                if (auxiliaryData[1]==2007) then -- up key
+                    
+                    sim.setJointTargetVelocity(right_wheel,speed)
+                    sim.setJointTargetVelocity(left_wheel,speed)
+                end
+                if (auxiliaryData[1]==2008) then -- down key
+                    
+                    sim.setJointTargetVelocity(right_wheel,-speed/2)
+                    sim.setJointTargetVelocity(left_wheel,-speed/2)
+                    
+                end
+                if (auxiliaryData[1]==2009) then -- left key
+                    sim.setJointTargetVelocity(right_wheel,speed)
+                    sim.setJointTargetVelocity(left_wheel,speed/2)
+                   
+                end
+                if (auxiliaryData[1]==2010) then -- right key
+                    sim.setJointTargetVelocity(right_wheel,speed/2)
+                    sim.setJointTargetVelocity(left_wheel,speed)
+                    
+                end
+
+            end
+        end
+        message,auxiliaryData=sim.getSimulatorMessage()
+    end
+end</pre>
+<p></p><br />pj1 << <a href='pj1.html'>Previous</a> </div>
         
     <!-- footer -->
       <div class="container">
