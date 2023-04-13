@@ -62,7 +62,7 @@ output <= str(sorted(list(set(group))))
 <p>1.先繪製球框(<a href="/downloads/ag2_downloads/ball frame.7z">ball frame.7z</a>)</p>
 <p><img alt="" height="300" src="/downloads/ag2_downloads/2023-03-27.png" width="500"/></p>
 <p>2.使用鍵盤控制<a href="/downloads/ag2_downloads/bubbleRob_lua.ttt">bubbleRob</a></p>
-<pre class="brush:lua;auto-links:false;html-script:true;toolbar:false" contenteditable="false">function sysCall_init()  
+<pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">function sysCall_init()  
     right_wheel= sim.getObjectHandle('joint1') 
     left_wheel= sim.getObjectHandle('joint2') 
     right_velocity=0 
@@ -118,3 +118,54 @@ function sysCall_actuation()
     end
 end</pre>
 <p></p>
+<p>3.加入球框感測器和記分板(<a href="/downloads/ag2_downloads/newbubbleRob2.ttt">newbubbleRob.ttt</a>)</p>
+<p><img alt="" height="300" src="/downloads/ag2_downloads/scoreboard.png" width="500"/></p>
+<p>感測器lua腳本</p>
+<pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">function sysCall_init()
+    score1 = 0
+    
+    sensor = sim.getObject('./sensor')
+    xml = [[
+        &lt;ui title="Scoreboard" closeable="false" resizable="false" style="plastique"&gt;
+        &lt;label text="Score:" style="* {background-color: #808080; color: #000000; font-size: 40px; font-weight: bold; padding: 5px; border-radius: 5px; }" id="10"/&gt;
+        &lt;label text="0" style="* {background-color: #FFF; color: #000000; font-size: 40px; font-weight: bold; padding: 5px; border-radius: 5px;}" id="30"/&gt;
+     
+        &lt;/ui&gt;
+    ]]
+    ui = simUI.create(xml)
+    simUI.setPosition(ui, 0,0, true)
+    bubbleRob = sim.getObject('/bubbleRob')
+    ball = sim.getObject('/ball')
+    bubbleRob2 = sim.getObject('/bubbleRob2')
+    initialPosition = sim.getObjectPosition(bubbleRob, -1)
+    initialOrientation = sim.getObjectOrientation(bubbleRob, -1)
+    initialPosition2 = sim.getObjectPosition(bubbleRob2, -1)
+    initialOrientation2 = sim.getObjectOrientation(bubbleRob2, -1)
+    initialballPosition = sim.getObjectPosition(ball, -1)
+    initialballOrientation = sim.getObjectOrientation(ball, -1)
+
+end
+
+
+function sysCall_actuation()
+    --simUI.setLabelText(ui, 30, tostring(sim.getFloatSignal("myVariable")))
+    result=sim.readProximitySensor(sensor)
+    if(score1&lt;5)then
+        if(result&gt;0)then
+            score2 = score1+1
+            simUI.setLabelText(ui, 30, tostring(score2))
+
+            sim.setObjectPosition(bubbleRob, -1, initialPosition)
+            sim.setObjectOrientation(bubbleRob, -1, initialOrientation)
+            sim.setObjectPosition(bubbleRob2, -1, initialPosition2)
+            sim.setObjectOrientation(bubbleRob2, -1, initialOrientation2)
+            sim.setObjectPosition(ball, -1, initialballPosition)
+            sim.setObjectOrientation(ball, -1, initialballOrientation)
+            score1=score2
+        end
+    else
+        sim.pauseSimulation()
+    end
+end</pre>
+<p></p>
+<p>4.</p>
