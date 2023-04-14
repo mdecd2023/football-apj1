@@ -455,12 +455,25 @@ while sim.simxGetConnectionId(clientID) != -1:
 <p>不拔除主要原因是可以用來凸顯bubbleRob的移動方向</p>
 <p><span style="background-color: #ff0000;">心得</span></p>
 <p>這次的專案從中學習到了CoppeliaSim的remoteApi實際運作方式</p>
-<p>也對<span>CoppeliaSim的lua與python的寫法有更深得了解</span></p>
-<p><span>對於CoppeliaSim的句柄用法了解透徹能夠靈活運用</span></p>
-<p><span>不過對於siim.py函式庫的使用依舊有加強空間</span></p>
+<p>也對CoppeliaSim的lua與python的寫法有更深得了解</p>
+<p>對於CoppeliaSim的句柄用法了解透徹能夠靈活運用</p>
+<p>不過對於sim.py函式庫的使用依舊有加強空間</p>
 <p>許多函式不熟悉只能使用替代方案執行</p>
-&gt;&gt;&gt;&gt;&gt;&gt;&gt; 147213fd663295900051ac837d89867a8ddf4c0b
-<br />ag12 << <a href='ag12.html'>Previous</a> </div>
+<p>編寫程式時可以多利用print</p>
+<p>不管是除錯或者理解暫存的內容都好用</p>
+<p>lua的寫法與習慣的pyhton略有不同</p>
+<p>例如</p>
+<p>--lua註解<br/>#python註解</p>
+<p><br/>lua程式後面需要加上end表示結束</p>
+<p>但不需要像python重視縮排</p>
+<p>-- lua 的if</p>
+<p>if *條件* then *輸出* elseif *條件2* then *輸出2* else *輸出3* end</p>
+<p>python不需要then 且elif跟lua的elseif寫法不同需要注意</p>
+<p>-- lua 的while</p>
+<p>function sysCall_actuation()<br/> <br/> *程式*</p>
+<p>end</p>
+<p>跟python的while True:類似無限循環執行到結束</p>
+<p></p><br />ag12 << <a href='ag12.html'>Previous</a> </div>
         
     <!-- footer -->
       <div class="container">
