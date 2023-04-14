@@ -1,183 +1,147 @@
-<h1>About</h1>
-<p>網站: <a href="https://mdecd2023.github.io/football-apj1">https://mdecd2023.github.io/football-apj1</a><span><span> </span></span></p>
-<p><span>倉儲:<span> </span></span><a href="https://github.com/mdecd2023/football-apj1">https://github.com/mdecd2023/football-apj1</a></p>
-<p><span>討論區: </span><a href="https://github.com/mdecd2023/football-apj1/discussions">https://github.com/mdecd2023/football-apj1/discussions</a></p>
-<h1>足球場景</h1>
-<p>bubbleRob1 與 bubbleRob2 分別透過 19997 與 19998 埠號交由雙方的 Python remoteAPI 進行控制</p>
-<p>場景串流埠號: 23020</p>
-<p>假設: 19997 與 bubbleRob1 的控制在一台 Windows 10 電腦上, 而 19998 則交由另外一台電腦控制.</p>
-<h1>評分</h1>
-<p><a href="https://gist.githubusercontent.com/mdecycu/92a2f2d8389aeeca986ecb9f7a901180/raw/a9fcd1d1f33d892c8a1f30102262a3269475741f/2a_w6-2_python_remote_api_result.txt">2a w6-2 Python remoteAPI 連線查驗結果.txt</a></p>
-<p><a href="https://mde.tw/studlist/2023spring/2a.txt">2a 學號與 Githbu 帳號對應名單</a></p>
-<p>還需要設法取得各組組員名單, 然後再換成學號</p>
-<p>請各組在 pj1 分組網頁中, 以 w6 (H2) 作為頁面標題, 直接在頁面中, 列出完成連線的分組與未完成連線的分組組員學號. </p>
-<p>預計採用 Brython 讀取上面兩個連結資料後, 再逐一利用迴圈進行比對</p>
-<!-- 建立 Brython 環境 -->
-<p id="brython_div"></p>
-<script src="/static/brython.js"></script>
-<script src="/static/brython_stdlib.js"></script>
-<script>
-window.onload=function(){
-brython({debug:1, pythonpath:['/static/']});
+<!DOCTYPE html><html>
+        <head>
+        <title>apj1</title>
+        <meta charset="utf-8">
+<meta property="head" content="H2">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700,900" rel="stylesheet">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/bootstrap.min.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/magnific-popup.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/jquery-ui.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/owl.carousel.min.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/owl.theme.default.min.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/bootstrap-datepicker.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/flaticon/font/flaticon.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/aos.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/style.css">
+        <link rel="shortcut icon" href="./../cmsimde/static/favicons.png">
+        
+        <style type='text/css'>
+            .site-section {
+            background-color: #FFFF;
+            padding: 40px 40px;
+            }
+            body > div > div.dropdown.open {
+                display: block;
+            }
+        </style>
+    
+        <!-- <script src="./../cmsimde/static/jquery.js"></script> -->
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+        <script src="../cmsimde/static/chimper/js/jquery-3.3.1.min.js"></script>
+        <link rel="stylesheet" href="./../cmsimde/static/tipuesearch/css/normalize.min.css">
+        <script src="./../cmsimde/static/tipuesearch/tipuesearch_set.js"></script>
+        <script src="tipuesearch_content.js"></script>
+        <link rel="stylesheet" href="./../cmsimde/static/tipuesearch/css/tipuesearch.css">
+        <script src="./../cmsimde/static/tipuesearch/tipuesearch.js"></script>
+        <!-- for Wink3 客製化關閉 -->
+        <!--
+        <link rel="stylesheet" type="text/css" href="./../cmsimde/static/winkPlayer.css" />
+        <script type="text/javascript" src="./../cmsimde/static/winkPlayer.js"></script>
+        -->
+        <script>
+            /* original tipuesearch
+            $(document).ready(function() {
+                 $('#tipue_search_input').tipuesearch();
+            });
+            */
+            // customed doSearch
+            function doSearch() {
+                $('#tipue_search_input').tipuesearch({
+                    newWindow: true, 
+                    minimumLength: 2,
+                    wholeWords: false, // for search 中文
+                });
+            }
+            $(document).ready(doSearch);
+        </script>
+        
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shCore.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushBash.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushDiff.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushJScript.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushJava.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushPython.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushSql.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushHaxe.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushXml.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushPhp.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushPowerShell.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushLua.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCpp.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCss.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCSharp.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushDart.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushRust.js"></script>
+<link type="text/css" rel="stylesheet" href="./../cmsimde/static/syntaxhighlighter/css/shCoreDefault.css"/>
+<script type="text/javascript">SyntaxHighlighter.all();</script>
+<!-- 暫時不用
+<script src="./../cmsimde/static/fengari-web.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/Cango-13v08-min.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/CangoAxes-4v01-min.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/gearUtils-05.js"></script>
+-->
+<!-- for Brython 暫時不用
+<script src="https://scrum-3.github.io/web/brython/brython.js"></script>
+<script src="https://scrum-3.github.io/web/brython/brython_stdlib.js"></script>
+-->
+<style>
+img.add_border {
+    border: 3px solid blue;
 }
-</script>
-<p id="output"></p>
-<script type="text/python">
-# 從 browser 模組導入 html 與 document
-# html 用於建立 html 物件, 而 document 則可對應到網頁元件
-from browser import html, document
-import re
-# api 練習傳送結果的 gist url
-api_result_url = "https://gist.githubusercontent.com/mdecycu/92a2f2d8389aeeca986ecb9f7a901180/raw/a9fcd1d1f33d892c8a1f30102262a3269475741f/2a_w6-2_python_remote_api_result.txt"
-# 從 studlist 倉儲取得的學號與帳號對應連結
-stud_github_url = "https://mde.tw/studlist/2023spring/2a.txt"
-api_result = open(api_result_url).read().split("\n")
-output = document["output"]
-group = []
-for i in api_result:
-    try:
-        if "虛擬世界" not in i:
-            num = re.findall('\d+', i )
-            if num[0] != "":
-                #output <= str(num[0])
-                #output <= html.BR()
-                group.append(int(num[0]))
-    except:
-        pass
+</style>
+
+</head>
+<body>
+<div class='container'><nav>
+        
+    <div class="site-wrap">
+
+    <div class="site-mobile-menu">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
     
-stud_github = open(stud_github_url).read().split("\n")
-for i in stud_github:
-    output <= i
-    output <= html.BR()
-output <= "完成 remote API 連線的 2a 組別"
-output <= html.BR()
-output <= str(sorted(list(set(group))))
-</script>
-<h1>pj1</h1>
-<h2>ag2</h2>
-<p>2a-pj1ag2組員:41023146洪偉陞、41023148夏進源</p>
-<p>pj1倉儲:<a href="https://github.com/mdecd2023/2a-pj1ag2">https://github.com/mdecd2023/2a-pj1ag2</a></p>
-<p>pj1網頁:<a href="https://mdecd2023.github.io/2a-pj1ag2/content/index.html">https://mdecd2023.github.io/2a-pj1ag2/content/index.html</a></p>
-<p>bubbleRob足球遊戲</p>
-<p>1.先繪製球框(<a href="/downloads/ag2_downloads/ball frame.7z">ball frame.7z</a>)</p>
-<p><img alt="" height="315" src="/downloads/ag2_downloads/2023-03-27.png" width="560"/></p>
-<p>2.使用鍵盤控制<a href="/downloads/ag2_downloads/bubbleRob_lua.ttt">bubbleRob</a></p>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/MfkN-pduOq0" title="YouTube video player" width="560"></iframe></p>
-<pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">function sysCall_init()  
-    right_wheel= sim.getObjectHandle('joint1') 
-    left_wheel= sim.getObjectHandle('joint2') 
-    right_velocity=0 
-    left_velocity=0
-    speed=5
-    sim.setJointTargetVelocity(right_wheel,0)
-    sim.setJointTargetVelocity(left_wheel,0)
- 
-end
-  
-function sysCall_actuation()  
-    message,auxiliaryData=sim.getSimulatorMessage() 
-    while message~=-1 do
-        if (message==sim.message_keypress) then
-            
-            if (auxiliaryData[1]==32) then
+            <header class="site-navbar py-4 bg-white" role="banner">
+              <div class="container">
+                <div class="row align-items-center">
+                <h1>apj1 統整專案</h1>
+                <div class="pl-4">
+                    <form>
+                    <input type="text" placeholder="Search" name="q" id="tipue_search_input" pattern=".{2,}" title="At least 2 characters" required>
+                    </form>
+                </div>
+                  <!-- <div class="col-11 col-xl-2">
+                    <h1 class="mb-0 site-logo"><a href="index.html" class="text-black h2 mb-0">apj1 統整專案</a></h1> 
+                  </div>
+                  -->
+                  <div class="col-12 col-md-10 d-none d-xl-block">
+                    <nav class="site-navigation position-relative text-right" role="navigation">
+    <ul class='site-menu js-clone-nav mr-auto d-none d-lg-block'>
+                        <li class="active has-children"><a href="index.html">Home</a>
+                        <ul class="dropdown">
+                            <li><a href="sitemap.html">Site Map</a></li>
+                            <li><a href="./../reveal/index.html">reveal</a></li>
+                            <li><a href="./../blog/index.html">blog</a></li>
+                        </ul>
+                      </li>
+                     <li><a href='About.html'>About</a><li><a href='足球場景.html'>足球場景</a><li><a href='評分.html'>評分</a><li class='has-children'><a href='pj1.html'>pj1</a><ul class='dropdown'><li><a href='ag2.html'>ag2</a><li><a href='ag4.html'>ag4</a></li>
+                      </ul>
+                </nav>
+              </div>
+              <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
+              </div>
 
-                right_velocity=0 
-                left_velocity=0 
-                sim.setJointMaxForce(right_wheel, 0) 
-                sim.setJointMaxForce(left_wheel, 0) 
-                break
-            else
-                sim.setJointMaxForce(right_wheel, 10) 
-                sim.setJointMaxForce(left_wheel, 10)
-            
-            
-                if (auxiliaryData[1]==2007) then -- up key
-                    
-                    sim.setJointTargetVelocity(right_wheel,speed)
-                    sim.setJointTargetVelocity(left_wheel,speed)
-                end
-                if (auxiliaryData[1]==2008) then -- down key
-                    
-                    sim.setJointTargetVelocity(right_wheel,-speed/2)
-                    sim.setJointTargetVelocity(left_wheel,-speed/2)
-                    
-                end
-                if (auxiliaryData[1]==2009) then -- left key
-                    sim.setJointTargetVelocity(right_wheel,speed)
-                    sim.setJointTargetVelocity(left_wheel,speed/2)
-                   
-                end
-                if (auxiliaryData[1]==2010) then -- right key
-                    sim.setJointTargetVelocity(right_wheel,speed/2)
-                    sim.setJointTargetVelocity(left_wheel,speed)
-                    
-                end
-
-            end
-        end
-        message,auxiliaryData=sim.getSimulatorMessage()
-    end
-end</pre>
-<p></p>
-<p>3.加入球框感測器和記分板(<a href="/downloads/ag2_downloads/newbubbleRob2.ttt">newbubbleRob.ttt</a>)</p>
-<p><img alt="" height="315" src="/downloads/ag2_downloads/scoreboard.png" width="560"/></p>
-<p>感測器lua腳本</p>
-<pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">function sysCall_init()
-    score1 = 0
-    
-    sensor = sim.getObject('./sensor')
-    xml = [[
-        &lt;ui title="Scoreboard" closeable="false" resizable="false" style="plastique"&gt;
-        &lt;label text="Score:" style="* {background-color: #808080; color: #000000; font-size: 40px; font-weight: bold; padding: 5px; border-radius: 5px; }" id="10"/&gt;
-        &lt;label text="0" style="* {background-color: #FFF; color: #000000; font-size: 40px; font-weight: bold; padding: 5px; border-radius: 5px;}" id="30"/&gt;
-     
-        &lt;/ui&gt;
-    ]]
-    ui = simUI.create(xml)
-    simUI.setPosition(ui, 0,0, true)
-    bubbleRob = sim.getObject('/bubbleRob')
-    ball = sim.getObject('/ball')
-    bubbleRob2 = sim.getObject('/bubbleRob2')
-    initialPosition = sim.getObjectPosition(bubbleRob, -1)
-    initialOrientation = sim.getObjectOrientation(bubbleRob, -1)
-    initialPosition2 = sim.getObjectPosition(bubbleRob2, -1)
-    initialOrientation2 = sim.getObjectOrientation(bubbleRob2, -1)
-    initialballPosition = sim.getObjectPosition(ball, -1)
-    initialballOrientation = sim.getObjectOrientation(ball, -1)
-
-end
-
-
-function sysCall_actuation()
-    --simUI.setLabelText(ui, 30, tostring(sim.getFloatSignal("myVariable")))
-    result=sim.readProximitySensor(sensor)
-    if(score1&lt;5)then
-        if(result&gt;0)then
-            score2 = score1+1
-            simUI.setLabelText(ui, 30, tostring(score2))
-
-            sim.setObjectPosition(bubbleRob, -1, initialPosition)
-            sim.setObjectOrientation(bubbleRob, -1, initialOrientation)
-            sim.setObjectPosition(bubbleRob2, -1, initialPosition2)
-            sim.setObjectOrientation(bubbleRob2, -1, initialOrientation2)
-            sim.setObjectPosition(ball, -1, initialballPosition)
-            sim.setObjectOrientation(ball, -1, initialballOrientation)
-            score1=score2
-        end
-    else
-        sim.pauseSimulation()
-    end
-end</pre>
-<p></p>
-<p>4.改成用遠端api操控bubbleRob前後左右移動(<a href="/downloads/ag2_downloads/bubbleRob.7z">bubbleRob.7z</a>)</p>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/R4sNWGZLYoA" title="YouTube video player" width="560"></iframe></p>
-<<<<<<< HEAD
-<h2>ag12</h2>
-<p><span>2a-pj1ag2組員:41023114 王樟皓 41023126 卓桓琮</span></p>
-<p>github倉儲 :<span><span> </span><a href="https://github.com/mdecad2022/site-41023126.git">https://github.com/mdecad2022/site-41023126.git</a></span></p>
-<p>個人網站 :<a href="https://mdecad2022.github.io/site-41023126/content/index.html">https://mdecad2022.github.io/site-41023126/content/index.html</a></p>
-=======
-<h2>ag4</h2>
+            </div>
+          </div>
+          
+        </header>
+    <div id="tipue_search_content">ag2 << <a href='ag2.html'>Previous</a> <br /><h1>ag4</h1>
 <p><span>2a-pj1ag4組員:41023125、41023128</span></p>
 <p>pj1ag4倉儲:<a href="https://github.com/mdecd2023/2a-pj1ag4">https://github.com/mdecd2023/2a-pj1ag4</a></p>
 <p>pj1ag4網頁:<a href="https://mdecd2023.github.io/2a-pj1ag4">https://mdecd2023.github.io/2a-pj1ag4</a></p>
@@ -193,28 +157,28 @@ end</pre>
 <p>3/26 增加放開鍵盤會停止、倒數計時、記分板</p>
 <p>增加放開鍵盤一段時間後會將速度設為0直到按下鍵盤</p>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/oGEXV054pAk" title="YouTube video player" width="560"></iframe></p>
-<p><img alt="" src="/images/index.html"/>增加倒數計時與分數的面板</p>
+<p><img alt="" src="./../images/index.html"/>增加倒數計時與分數的面板</p>
 <p>開始後開始倒數計時</p>
 <p>時間到則結束</p>
-<p><img caption="false" height="293" src="/images/326.png" width="554"/></p>
+<p><img caption="false" height="293" src="./../images/326.png" width="554"/></p>
 <p>兩邊感測與計算皆完成</p>
-<p><img alt="" height="293" src="/images/326-2.png" width="560"/></p>
+<p><img alt="" height="293" src="./../images/326-2.png" width="560"/></p>
 <p><span></span>3/29 連線問題解決</p>
 <p>將操作的程式轉成python</p>
 <p>4/12 確認連機遊玩可執行</p>
 <p>加入歡迎跟恭喜</p>
-<p><img caption="false" height="298" src="/images/412-1.png" width="560"/></p>
+<p><img caption="false" height="298" src="./../images/412-1.png" width="560"/></p>
 <p></p>
-<p><img caption="false" height="296" src="/images/412-2.png" width="560"/></p>
+<p><img caption="false" height="296" src="./../images/412-2.png" width="560"/></p>
 <p>共經歷了八個版本</p>
-<p>前七個版本:<a href="/downloads/ag4/bubbleRob紀錄.7z">bubbleRob紀錄.7z</a></p>
-<p>最終版:<a href="/downloads/ag4/bubbleRob.7z">bubbleRob.7z</a></p>
+<p>前七個版本:<a href="./../downloads/ag4/bubbleRob紀錄.7z">bubbleRob紀錄.7z</a></p>
+<p>最終版:<a href="./../downloads/ag4/bubbleRob.7z">bubbleRob.7z</a></p>
 <p>裡面包含了my_ip.txt ip.bat  ip.py bubbleRob2.py bubbleRob.py bubbleRob_scenes.ttt等</p>
 <p>點擊<span>ip.bat就能直接獲取到目前電腦的ipv4位置</span></p>
-<p><span><img caption="false" height="147" src="/images/ip.png" width="734"/></span></p>
+<p><span><img caption="false" height="147" src="./../images/ip.png" width="734"/></span></p>
 <p><span></span></p>
 <p> 加入遊戲所在電腦ip 只需輸入ip (<span>遊戲所在電腦ip</span>)</p>
-<p><img caption="false" height="151" src="/images/gameip.png" width="859"/></p>
+<p><img caption="false" height="151" src="./../images/gameip.png" width="859"/></p>
 <p></p>
 <p><span style="background-color: #ff0000;">程式</span></p>
 <p>場景部分將程式將拆成了許多部分</p>
@@ -464,7 +428,7 @@ while sim.simxGetConnectionId(clientID) != -1:
 <p><span style="background-color: #ff0000;">遊戲說明</span></p>
 <p>開啟場景後便可以使用19997進行連線</p>
 <p>如果成功連線便會顯示</p>
-<p><img caption="false" height="297" src="/images/412-1.png" width="560"/></p>
+<p><img caption="false" height="297" src="./../images/412-1.png" width="560"/></p>
 <p>這時23020與19998埠號便會開啟</p>
 <p>第二位玩家便可利用19998加入遊戲</p>
 <p>加入成功便會立即開始</p>
@@ -487,11 +451,61 @@ while sim.simxGetConnectionId(clientID) != -1:
 <p>希望能做到同時按兩個鍵</p>
 <p>將會有更高的操作性</p>
 <p><span style="background-color: #ff0000;">補充</span></p>
-<p><span style="background-color: #ff0000;"></span></p>
+<p>sensingNose其實沒有實際用處</p>
+<p>不拔除主要原因是可以用來凸顯bubbleRob的移動方向</p>
 <p><span style="background-color: #ff0000;">心得</span></p>
 <p>這次的專案從中學習到了CoppeliaSim的remoteApi實際運作方式</p>
 <p>也對<span>CoppeliaSim的lua與python的寫法有更深得了解</span></p>
 <p><span>對於CoppeliaSim的句柄用法了解透徹能夠靈活運用</span></p>
 <p><span>不過對於siim.py函式庫的使用依舊有加強空間</span></p>
-<p>許多函式不熟悉只能使用替代方案執行</p>
->>>>>>> 147213fd663295900051ac837d89867a8ddf4c0b
+<p>許多函式不熟悉只能使用替代方案執行</p><br />ag2 << <a href='ag2.html'>Previous</a> </div>
+        
+    <!-- footer -->
+      <div class="container">
+        <div class="row pt-3 mx-auto">
+            <p>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            </p>
+        </div>
+      </div>
+    <!-- for footer -->
+    
+        </div> <!-- for site wrap -->
+            <!-- <script src="../cmsimde/static/chimper/js/jquery-3.3.1.min.js"></script> -->
+            <script src="../cmsimde/static/chimper/js/jquery-migrate-3.0.1.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery-ui.js"></script>
+            <script src="../cmsimde/static/chimper/js/popper.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/bootstrap.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/owl.carousel.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.stellar.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.countdown.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.magnific-popup.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/bootstrap-datepicker.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/aos.js"></script>
+            <!--
+            <script src="../cmsimde/static/chimper/js/typed.js"></script>
+                    <script>
+                    var typed = new Typed('.typed-words', {
+                    strings: ["Web Apps"," WordPress"," Mobile Apps"],
+                    typeSpeed: 80,
+                    backSpeed: 80,
+                    backDelay: 4000,
+                    startDelay: 1000,
+                    loop: true,
+                    showCursor: true
+                    });
+                    </script>
+            -->
+            <script src="../cmsimde/static/chimper/js/main.js"></script>
+        
+<!-- 啟用 LaTeX equations 編輯 -->
+  <!-- <script>
+  MathJax = {
+    tex: {inlineMath: [['$', '$'], ['\(', '\)']]}
+  };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>-->
+    </body></html>
+        
