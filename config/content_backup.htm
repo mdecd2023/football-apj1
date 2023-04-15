@@ -543,7 +543,7 @@ while sim.simxGetConnectionId(clientID) != -1:
 <p>可以將倒數計時器顯示出來，但計時器所減少的時間會比正常時間快好幾倍</p>
 <p><img alt="" height="405" src="/downloads/ag10/20230414-3.png" width="720"/></p>
 <p>bubbleRob_football 檔案 : <a href="/downloads/ag10/newbing_bubbleRob_football.ttt">bubbleRob_football_pj1ag10</a></p>
-<p>程式參考 <a href="https://mdecd2023.github.io/2a-pj1ag2/content/index.html">2a-pj1ag2</a> ，並加上註解</p>
+<p>記分板程式註解</p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">function sysCall_init()
     score1 = 0 -- 初始化一個名為score1的變數，值為0
     
@@ -604,7 +604,7 @@ function sysCall_actuation()
         sim.pauseSimulation()
     end
 end</pre>
-<p>倒數計時器程式參考 <a href="https://mdecd2023.github.io/2a-pj1ag4/content/index.html">2a-pj1ag4</a> ，並加上註解</p>
+<p>倒數計時器程式註解</p>
 <pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">-- 初始化函數，初始化得分(score1)為0和計時器(count)為3600
 function sysCall_init()
     -- initialize the score to 0
@@ -657,10 +657,11 @@ function sysCall_actuation() -- 讀取接近傳感器值
           simUI.setLabelText(ui, 10, timeStr) -- 更新時間UI標籤
           simUI.setLabelText(ui, 30, tostring(score1)) -- 更新score的UI標籤
     else
-        -- 如果分數達到5，則會暫停模擬
+        -- 如果時間到會暫停模擬
         sim.pauseSimulation()
     end
 end</pre>
+<p>製作心得：</p>
 <p></p>
 <p></p>
 <p></p><h2>ag12</h2>
