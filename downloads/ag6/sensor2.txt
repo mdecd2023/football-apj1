@@ -1,0 +1,46 @@
+function sysCall_init()
+    score1 = 0
+    
+    sensor = sim.getObject('./sensor2')
+    xml = [[
+        <ui title="Scoreboard" closeable="false" resizable="false" style="plastique">
+        <label text="Score:" style="* {background-color: #808080; color: #000000; font-size: 40px; font-weight: bold; padding: 5px; border-radius: 5px; }" id="20"/>
+        <label text="0" style="* {background-color: #FFF; color: #000000; font-size: 40px; font-weight: bold; padding: 5px; border-radius: 5px;}" id="40"/>
+     
+        </ui>
+    ]]
+    ui = simUI.create(xml)
+    simUI.setPosition(ui, 1770,0, true)
+    bubbleRob = sim.getObject('/bubbleRob')
+    ball = sim.getObject('/ball')
+    bubbleRob2 = sim.getObject('/bubbleRob2')
+    initialPosition = sim.getObjectPosition(bubbleRob, -1)
+    initialOrientation = sim.getObjectOrientation(bubbleRob, -1)
+    initialPosition2 = sim.getObjectPosition(bubbleRob2, -1)
+    initialOrientation2 = sim.getObjectOrientation(bubbleRob2, -1)
+    initialballPosition = sim.getObjectPosition(ball, -1)
+    initialballOrientation = sim.getObjectOrientation(ball, -1)
+
+end
+
+
+function sysCall_actuation()
+    --simUI.setLabelText(ui, 30, tostring(sim.getFloatSignal("myVariable")))
+    result=sim.readProximitySensor(sensor)
+    if(score1<5)then
+        if(result>0)then
+            score2 = score1+1
+            simUI.setLabelText(ui, 40, tostring(score2))
+
+            sim.setObjectPosition(bubbleRob, -1, initialPosition)
+            sim.setObjectOrientation(bubbleRob, -1, initialOrientation)
+            sim.setObjectPosition(bubbleRob2, -1, initialPosition2)
+            sim.setObjectOrientation(bubbleRob2, -1, initialOrientation2)
+            sim.setObjectPosition(ball, -1, initialballPosition)
+            sim.setObjectOrientation(ball, -1, initialballOrientation)
+            score1=score2
+        end
+    else
+        sim.pauseSimulation()
+    end
+end
