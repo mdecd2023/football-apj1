@@ -54,6 +54,65 @@ output <= html.BR()
 output <= str(sorted(list(set(group))))
 </script>
 <h1>pj1</h1>
+<h2>ag1</h2>
+<p>2a-pj1ag1組員:41023147紀閔翔、41023143施建菖</p>
+<p>pj1倉儲:<a href="https://github.com/mdecd2023/2a-pj1ag1">https://github.com/mdecd2023/2a-pj1ag1</a> </p>
+<p>pj1網頁:<a href="https://mdecd2023.github.io/2a-pj1ag1/content/project1.html">https://mdecd2023.github.io/2a-pj1ag1/content/project1.html</a> </p>
+<p>1.建立<a href="/downloads/ag1/foodball case.SLDPRT">球框</a></p>
+<p><img alt="" height="630" src="/images/football stage.png" width="1008"/></p>
+<p>==</p>
+<p>感測器lua</p>
+<pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">function sysCall_init()
+    score1 = 0
+    
+    sensor = sim.getObject('./sensor')
+    xml = [[
+        <ui closeable="false" resizable="false" title="Scoreboard">
+        <label id="10" style="* {background-color: #808080; color: #000000; font-size: 40px; font-weight: bold; padding: 5px; border-radius: 5px;" text="Score:"></label>
+        <label id="30" style="* {background-color: #FFF; color: #000000; font-size: 40px; font-weight: bold; padding: 5px; border-radius: 5px;" text="0"></label>
+     
+        </ui>
+    ]]
+    ui = simUI.create(xml)
+    simUI.setPosition(ui, 0,0, true)
+    bubbleRob = sim.getObject('/bubbleRob')
+    ball = sim.getObject('/ball')
+    bubbleRob2 = sim.getObject('/bubbleRob2')
+    initialPosition = sim.getObjectPosition(bubbleRob, -1)
+    initialOrientation = sim.getObjectOrientation(bubbleRob, -1)
+    initialPosition2 = sim.getObjectPosition(bubbleRob2, -1)
+    initialOrientation2 = sim.getObjectOrientation(bubbleRob2, -1)
+    initialballPosition = sim.getObjectPosition(ball, -1)
+    initialballOrientation = sim.getObjectOrientation(ball, -1)
+
+end
+
+
+function sysCall_actuation()
+    --simUI.setLabelText(ui, 30, tostring(sim.getFloatSignal("myVariable")))
+    result=sim.readProximitySensor(sensor)
+    if(score1&lt;5)then
+        if(result&gt;0)then
+            score2 = score1+1
+            simUI.setLabelText(ui, 30, tostring(score2))
+
+            sim.setObjectPosition(bubbleRob, -1, initialPosition)
+            sim.setObjectOrientation(bubbleRob, -1, initialOrientation)
+            sim.setObjectPosition(bubbleRob2, -1, initialPosition2)
+            sim.setObjectOrientation(bubbleRob2, -1, initialOrientation2)
+            sim.setObjectPosition(ball, -1, initialballPosition)
+            sim.setObjectOrientation(ball, -1, initialballOrientation)
+            score1=score2
+        end
+    else
+        sim.pauseSimulation()
+    end
+end
+end</pre>
+<p></p>
+<p>==</p>
+<p>使用方向鍵操控車子並得分</p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/J7PKoCj7Ie0" title="YouTube video player" width="560"></iframe></p>
 <h2>ag2</h2>
 <p>2a-pj1ag2組員:41023146洪偉陞、41023148夏進源</p>
 <p>pj1倉儲:<a href="https://github.com/mdecd2023/2a-pj1ag2">https://github.com/mdecd2023/2a-pj1ag2</a></p>
@@ -171,8 +230,7 @@ end</pre>
 <p></p>
 <p>4.改成用遠端api操控bubbleRob前後左右移動(<a href="/downloads/ag2_downloads/bubbleRob.7z">bubbleRob.7z</a>)</p>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/R4sNWGZLYoA" title="YouTube video player" width="560"></iframe></p>
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p>
-<h2>ag4</h2>
+<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p><h2>ag4</h2>
 <p><span>2a-pj1ag4組員:41023125、41023128</span></p>
 <p>pj1ag4倉儲:<a href="https://github.com/mdecd2023/2a-pj1ag4">https://github.com/mdecd2023/2a-pj1ag4</a></p>
 <p>pj1ag4網頁:<a href="https://mdecd2023.github.io/2a-pj1ag4">https://mdecd2023.github.io/2a-pj1ag4</a></p>
@@ -662,6 +720,8 @@ var winkVideoData_40923155 = {
 <p>可以將倒數計時器顯示出來，但計時器所減少的時間會比正常時間快好幾倍</p>
 <p><img alt="" height="405" src="/downloads/ag10/20230414-3.png" width="720"/></p>
 <p>bubbleRob_football 檔案 : <a href="/downloads/ag10/newbing_bubbleRob_football.ttt">bubbleRob_football_pj1ag10</a></p>
+<p>加入連線對戰 bubbleRob_football 檔案 : <a href="/downloads/newbing_bubbleRob_football-2.ttt">bubbleRob_football-2_pj1ag10</a></p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/N05LssWO1C8" title="YouTube video player" width="560"></iframe></p>
 <p>記分板程式註解</p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">function sysCall_init()
     score1 = 0 -- 初始化一個名為score1的變數，值為0
@@ -780,6 +840,69 @@ function sysCall_actuation() -- 讀取接近傳感器值
         sim.pauseSimulation()
     end
 end</pre>
+<p><span style="background-color: #00ffff;">連線remoteAPI程式註解</span></p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false"># 引入必要的模块
+from zmqRemoteApi import RemoteAPIClient
+import keyboard
+import sim
+import time
+import simConst
+
+# 打印程式啟動的訊息
+print('Program started')
+
+# 關閉所有已開啟的連線
+sim.simxFinish(-1)
+
+# 連接到遠端 API 伺服器
+clientID = sim.simxStart('192.168.56.1', 19998, True, True, 5000, 5)
+
+# 啟動仿真
+sim.simxStartSimulation(clientID, sim.simx_opmode_oneshot_wait)
+
+# 判斷是否成功連線到伺服器
+if clientID != -1:
+    print('Connected to remote API server')
+else:
+    print('Failed connecting to remote API server')
+
+# 打印仿真開始的訊息
+print('Simulation started')
+
+# 取得左右輪子的控制句柄
+errorCode, leftMotor = sim.simxGetObjectHandle(clientID, 'leftMotor2', sim.simx_opmode_oneshot_wait)
+errorCode, rightMotor = sim.simxGetObjectHandle(clientID, 'rightMotor2', sim.simx_opmode_oneshot_wait)
+
+# 設定 BubbleRob 的速度
+def setBubbleRobVelocity(leftWheelVelocity, rightWheelVelocity):
+    # 取得左右輪子的控制句柄
+    errorCode, leftMotor = sim.simxGetObjectHandle(clientID, '/leftMotor2', sim.simx_opmode_oneshot_wait)
+    errorCode, rightMotor = sim.simxGetObjectHandle(clientID, '/rightMotor2',sim.simx_opmode_oneshot_wait)
+    # 設定左右輪子的目標速度
+    sim.simxSetJointTargetVelocity(clientID, leftMotor, leftWheelVelocity, simConst.simx_opmode_streaming)
+    sim.simxSetJointTargetVelocity(clientID, rightMotor, rightWheelVelocity, simConst.simx_opmode_streaming)
+
+# 循環檢測鍵盤事件
+while True:
+    if keyboard.is_pressed('up'):
+        # 按下"上"鍵，前進
+        setBubbleRobVelocity(2.0, 2.0)
+    elif keyboard.is_pressed('down'):
+        # 按下"下"鍵，後退
+        setBubbleRobVelocity(-2.0, -2.0)
+    elif keyboard.is_pressed('left'):
+        # 按下"左"鍵，左轉
+        setBubbleRobVelocity(-2.0, 2.0)
+    elif keyboard.is_pressed('right'):
+        # 按下"右"鍵，右轉
+        setBubbleRobVelocity(2.0, -2.0)
+    elif keyboard.is_pressed('q'):
+        # 按下"q"鍵，停止仿真
+        sim.stopSimulation()
+    else:
+        # 沒有按下任何鍵，停止移動
+        setBubbleRobVelocity(0.0, 0.0)</pre>
+<p>所有檔案壓縮檔：<a href="/downloads/bubbleRob football 2a-pj1ag10.7z">bubbleRob football 2a-pj1ag10.7z</a></p>
 <p>製作心得：</p>
 <p>製作bubbleRobTutorial時遇到不少問題，如:軸在裝配時選轉方向設置顛倒，導致bubbleRobTutorial 模擬後變成倒著跑，也有遇到只會在原地轉的，還有名稱大小寫打錯導致程式無法運行，但後來都有順利解決。因為參考資料是英文，所以在製作過程中遇到英文單字看不懂或無法理解他的意思，需要上網參考資料才能理解。在製作記分板時詢問了同學才知道他是利用xml創建UI界面將計分板顯示出來，並且利用了Lua函數中的回調函數，該函數中，可以讀取和設置模型的狀態，而計時器也是一樣利用UI界面，並且在回函樹中設置時間到會停止模擬，也學習到了CoppeliaSim的remoteApi實際運作的流程。</p>
 <p></p>
