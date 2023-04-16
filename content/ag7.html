@@ -162,9 +162,18 @@ img.add_border {
 <p></p>
 <p></p>
 <p><img alt="" height="96" src="./../images/螢幕擷取畫面 2023-04-16 142004.png" width="417"/></p>
-<p></p>
-<p></p>
-<p><img alt="" height="538" src="./../images/螢幕擷取畫面 2023-04-16 142145.png" width="1013"/></p><br />ag6 << <a href='ag6.html'>Previous</a> <a href='ag10.html'>Next</a> >> ag10</div>
+<p><img alt="" height="297" src="./../images/螢幕擷取畫面 2023-04-16 151508.png" width="887"/></p>
+<p>程式碼中使用了 sim.getObject 函數，這是 V-REP 中的一個函數，用於獲取場景中的物件。具體來說，變數 sensor1 和 sensor2 分別被賦值為場景中名稱為 door1 和 door2 的物件。bubbleRobBase 和 ball 變數分別被賦值為 34 和 16，這表示場景中分別有兩個物件的編號為 34 和 16。</p>
+<p>接下來，程式碼使用 sim.getObjectPosition 函數和 sim.getObjectOrientation 函數分別獲取了 bubbleRobBase、ball 和名稱為 23 的物件的位置和方向。這些位置和方向的值將被用作後續程式的參考，例如將 bubbleRobBase 和 ball 移回它們的初始位置。</p>
+<p>最後，程式碼使用 print 函數將 bubbleRobBase 和 ball 的值輸出到控制台，以供使用者查看和調試。</p>
+<p><span style="background-color: #cc99ff;"><strong>記分板</strong></span></p>
+<p><span><span style="background-color: #ff99cc;">"do some initialization here" </span>是一個程式設計的術語，指的是在程式開始執行之前，需要進行一些初始化的動作，例如設定變數的初值、載入資料庫、建立物件等等。這樣可以確保程式在執行時能夠順利運作，因為有些變數或資源需要預先被設定或載入，才能夠正確地被程式所使用。在程式開發中，初始化是非常重要的一個步驟，能夠確保程式的正確性、可靠性和穩定性。</span></p>
+<p><img alt="" height="172" src="./../images/螢幕擷取畫面 2023-04-16 150711.png" width="962"/></p>
+<p>這段程式碼是一個 Lua 腳本，在機器人仿真軟體 V-REP 中執行，它的功能是創建一個介面(UI)，並在介面中加入三個 label 元件，顯示計時器和分數。</p>
+<p>具體來說，程式碼中的 count 變數被賦值為 4500，這表示計時器初始值為 30 分鐘（因為 4500 秒等於 30 分鐘）。score1 和 score2 變數被賦值為 0，這是為了儲存兩隊的分數。</p>
+<p>接下來，定義了一個包含三個 label 元件的 xml 字串，每個 label 元件都有不同的樣式（style）和 id 屬性。這些 label 元件分別用來顯示計時器、第一隊的分數和第二隊的分數。</p>
+<p>最後，通過 simUI.create 函數創建了一個新的介面(ui)，並將 xml 字串作為參數傳遞給這個函數。接著，使用 simUI.setPosition 函數將介面(ui)移動到畫面左上角（座標為 (0, 0)），並設置第三個參數為 true，表示移動後介面(ui)保持可見。</p>
+<p><img alt="" height="489" src="./../images/螢幕擷取畫面 2023-04-16 145221.png" width="990"/></p><br />ag6 << <a href='ag6.html'>Previous</a> <a href='ag10.html'>Next</a> >> ag10</div>
         
     <!-- footer -->
       <div class="container">
