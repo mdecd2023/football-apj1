@@ -141,74 +141,10 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">pj1 << <a href='pj1.html'>Previous</a> <a href='ag2.html'>Next</a> >> ag2<br /><h1>ag1</h1>
-<p>2a-pj1ag1組員:41023147紀閔翔、41023143施建菖</p>
-<p>pj1倉儲:<a href="https://github.com/mdecd2023/2a-pj1ag1">https://github.com/mdecd2023/2a-pj1ag1</a> </p>
-<p>pj1網頁:<a href="https://mdecd2023.github.io/2a-pj1ag1/content/project1.html">https://mdecd2023.github.io/2a-pj1ag1/content/project1.html</a> </p>
-<p>1.建立<a href="./../downloads/ag1/foodball case.SLDPRT">球框</a></p>
-<p><img alt="" height="630" src="./../images/football stage.png" width="1008"/></p>
-<p>==</p>
-<p>2.叫出可使用方向鍵控制的小車</p>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/bRLHoNq-ofE" title="YouTube video player" width="560"></iframe></p>
-<p>==</p>
-<p>3.加上感測器</p>
-<p>感測器lua</p>
-<pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">function sysCall_init()
-    score1 = 0
-    
-    sensor = sim.getObject('./sensor')
-    xml = [[
-        <ui closeable="false" resizable="false" title="Scoreboard">
-        <label id="10" style="* {background-color: #808080; color: #000000; font-size: 40px; font-weight: bold; padding: 5px; border-radius: 5px;" text="Score:"></label>
-        <label id="30" style="* {background-color: #FFF; color: #000000; font-size: 40px; font-weight: bold; padding: 5px; border-radius: 5px;" text="0"></label>
-     
-        </ui>
-    ]]
-    ui = simUI.create(xml)
-    simUI.setPosition(ui, 0,0, true)
-    bubbleRob = sim.getObject('/bubbleRob')
-    ball = sim.getObject('/ball')
-    bubbleRob2 = sim.getObject('/bubbleRob2')
-    initialPosition = sim.getObjectPosition(bubbleRob, -1)
-    initialOrientation = sim.getObjectOrientation(bubbleRob, -1)
-    initialPosition2 = sim.getObjectPosition(bubbleRob2, -1)
-    initialOrientation2 = sim.getObjectOrientation(bubbleRob2, -1)
-    initialballPosition = sim.getObjectPosition(ball, -1)
-    initialballOrientation = sim.getObjectOrientation(ball, -1)
-
-end
-
-
-function sysCall_actuation()
-    --simUI.setLabelText(ui, 30, tostring(sim.getFloatSignal("myVariable")))
-    result=sim.readProximitySensor(sensor)
-    if(score1&lt;5)then
-        if(result&gt;0)then
-            score2 = score1+1
-            simUI.setLabelText(ui, 30, tostring(score2))
-
-            sim.setObjectPosition(bubbleRob, -1, initialPosition)
-            sim.setObjectOrientation(bubbleRob, -1, initialOrientation)
-            sim.setObjectPosition(bubbleRob2, -1, initialPosition2)
-            sim.setObjectOrientation(bubbleRob2, -1, initialOrientation2)
-            sim.setObjectPosition(ball, -1, initialballPosition)
-            sim.setObjectOrientation(ball, -1, initialballOrientation)
-            score1=score2
-        end
-    else
-        sim.pauseSimulation()
-    end
-end
-end</pre>
-<p></p>
-<p>==</p>
-<p>4.使用方向鍵操控車子並得分</p>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/J7PKoCj7Ie0" title="YouTube video player" width="560"></iframe></p>
-<p>5.成功雙人連線(在關了三個防火牆之後)</p>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/2oGSiprgVwo" title="YouTube video player" width="560"></iframe></p>
-<div id="gtx-trans" style="position: absolute; left: 35px; top: 145.833px;">
-<div class="gtx-trans-icon"></div>
-</div><br />pj1 << <a href='pj1.html'>Previous</a> <a href='ag2.html'>Next</a> >> ag2</div>
+    <div id="tipue_search_content">ag2 << <a href='ag2.html'>Previous</a> <a href='ag4-2.html'>Next</a> >> ag4-2<br /><h1>ag4-1</h1>
+=======
+<p>5.RemoteAPI操控</p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/NU7_OHrISqo" title="YouTube video player" width="560"></iframe></p><br />ag2 << <a href='ag2.html'>Previous</a> <a href='ag4-2.html'>Next</a> >> ag4-2</div>
         
     <!-- footer -->
       <div class="container">
