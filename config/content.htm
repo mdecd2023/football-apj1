@@ -1062,8 +1062,99 @@ end</pre>
 <p>製作心得：</p>
 <p>製作bubbleRobTutorial時遇到不少問題，如:軸在裝配時選轉方向設置顛倒，導致bubbleRobTutorial 模擬後變成倒著跑，也有遇到只會在原地轉的，還有名稱大小寫打錯導致程式無法運行，但後來都有順利解決。因為參考資料是英文，所以在製作過程中遇到英文單字看不懂或無法理解他的意思，需要上網參考資料才能理解。在製作記分板時詢問了同學才知道他是利用xml創建UI界面將計分板顯示出來，並且利用了Lua函數中的回調函數，該函數中，可以讀取和設置模型的狀態，而計時器也是一樣利用UI界面，並且在回函樹中設置時間到會停止模擬，也學習到了CoppeliaSim的remoteApi實際運作的流程。</p>
 <p></p>
+<h2>ag11</h2>
+<p>ag11倉儲:<a href="https://github.com/mdecd2023/2a-pj1ag11">https://github.com/mdecd2023/2a-pj1ag11</a></p>
+<p>ag11網頁:<a href="https://mdecd2023.github.io/2a-pj1ag11/content/index.html">https://mdecd2023.github.io/2a-pj1ag11/content/index.html</a></p>
+<p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 1rem; color: #000000; font-family: Quicksand, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: #ffffff; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; padding-left: 30px;"><a href="https://nfuedu-my.sharepoint.com/:u:/g/personal/yen_nfu_edu_tw/ESZDNiA_DBVPnOtGrwqy0VIBC_Kj701ebfCMFrvr_sF1EA?e=NUw6pm" style="box-sizing: border-box; color: #212226; text-decoration: none; background-color: transparent; transition: all 0.2s ease-out 0s; font-weight: 400; border-bottom: 1px solid #f26a3d;">2023_remoteapi_bubbleRob.7z</a><span> </span>(<a href="https://nfuedu-my.sharepoint.com/:v:/g/personal/yen_nfu_edu_tw/Ee_4--aOPRtFkVYTKFU6qUgBq1SPwK6nixKOX61zMBeZsw?e=TbbREn" style="box-sizing: border-box; color: #212226; text-decoration: none; background-color: transparent; transition: all 0.2s ease-out 0s; font-weight: 400; border-bottom: 1px solid #f26a3d;">2aw6 如何在 chatGPT 協助下開發 remote API 控制程式.mp4</a>)</p>
+<p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 1rem; color: #000000; font-family: Quicksand, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: #ffffff; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; padding-left: 30px;"><a href="https://nfuedu-my.sharepoint.com/:u:/g/personal/yen_nfu_edu_tw/Ee74da1clrdAn49V_Az20_kBt4MBo_GcbjQj3hu5gIzP8w?e=D4n14Q" style="box-sizing: border-box; color: #212226; text-decoration: none; background-color: transparent; transition: all 0.2s ease-out 0s; font-weight: 400; border-bottom: 1px solid #f26a3d;">透過鍵盤控制 bubbleRob 的場景與 remote API 程式.7z</a><span> </span>(<a href="https://nfuedu-my.sharepoint.com/:v:/g/personal/yen_nfu_edu_tw/EfKKLx6WMHNKn0A8EXT7H2wBYZLVW2MyDocik-sZnpuZzg?e=m8TENv" style="box-sizing: border-box; color: #212226; text-decoration: none; background-color: transparent; transition: all 0.2s ease-out 0s; font-weight: 400; border-bottom: 1px solid #f26a3d;">示範操作影片.mp4</a>)</p>
+<p>利用newbing_bubbleRob_remoteapi1.py &gt;tools&gt;go 執行程式</p>
+<p>並且下載pip install keyboard 才可利用鍵盤控制bubbleRob執行前進 , 後退和左右等指令來操控機器人</p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/bJteQZypPm0" title="YouTube video player" width="560"></iframe></p>
 <p></p>
-<h2>ag12</h2>
+<p>製作球場步驟與sensor</p>
+<p></p>
+<script>
+var winkVideoData7 = {
+  dataVersion: 1,
+  frameRate: 10,
+  buttonFrameLength: 5,
+  buttonFrameOffset: 2,
+  frameStops: {
+  },
+};
+</script>
+<div class="winkVideoContainerClass"><video autoplay="autoplay" class="winkVideoClass" controls="controls" data-dirname="./../cmsimde/static" data-varname="winkVideoData7" height="580" muted="true" width="1000">
+<source src="./../downloads/ag11/0327.mp4" type="video/mp4"/></video>
+<div class="winkVideoOverlayClass"></div>
+<div class="winkVideoControlBarClass"><button class="winkVideoControlBarPlayButtonClass"></button> <button class="winkVideoControlBarPauseButtonClass"></button>
+<div class="winkVideoControlBarProgressLeftClass"></div>
+<div class="winkVideoControlBarProgressLeftClass">導入記分板與更改錯誤</div>
+<div class="winkVideoControlBarProgressEmptyMiddleClass"></div>
+</div>
+</div>
+<script>
+var winkVideoData8 = {
+  dataVersion: 1,
+  frameRate: 10,
+  buttonFrameLength: 5,
+  buttonFrameOffset: 2,
+  frameStops: {
+  },
+};
+</script>
+<div class="winkVideoContainerClass"><video autoplay="autoplay" class="winkVideoClass" controls="controls" data-dirname="./../cmsimde/static" data-varname="winkVideoData8" height="580" muted="true" width="1000">
+<source src="./../downloads/ag11/0410.mp4" type="video/mp4"/></video>
+<div class="winkVideoOverlayClass"></div>
+<div class="winkVideoControlBarClass"><button class="winkVideoControlBarPlayButtonClass"></button> <button class="winkVideoControlBarPauseButtonClass"></button>
+<div class="winkVideoControlBarProgressLeftClass"></div>
+<div class="winkVideoControlBarProgressLeftClass">sensor,球與本體的偵測錯誤</div>
+<div class="winkVideoControlBarProgressEmptyMiddleClass"></div>
+</div>
+</div>
+<script>
+var winkVideoData9 = {
+  dataVersion: 1,
+  frameRate: 10,
+  buttonFrameLength: 5,
+  buttonFrameOffset: 2,
+  frameStops: {
+  },
+};
+</script>
+<div class="winkVideoContainerClass"><video autoplay="autoplay" class="winkVideoClass" controls="controls" data-dirname="./../cmsimde/static" data-varname="winkVideoData9" height="580" muted="true" width="1000">
+<source src="./../downloads/ag11/0410-2.mp4" type="video/mp4"/></video>
+<div class="winkVideoOverlayClass"></div>
+<div class="winkVideoControlBarClass"><button class="winkVideoControlBarPlayButtonClass"></button> <button class="winkVideoControlBarPauseButtonClass"></button>
+<div class="winkVideoControlBarProgressLeftClass"></div>
+<div class="winkVideoControlBarProgressLeftClass">修正sensor,球體與本體之錯誤(可正常執行遊玩)</div>
+<div class="winkVideoControlBarProgressEmptyMiddleClass"></div>
+</div>
+</div>
+<script>
+var winkVideoData11 = {
+  dataVersion: 1,
+  frameRate: 10,
+  buttonFrameLength: 5,
+  buttonFrameOffset: 2,
+  frameStops: {
+  },
+};
+</script>
+<div class="winkVideoContainerClass"><video autoplay="autoplay" class="winkVideoClass" controls="controls" data-dirname="./../cmsimde/static" data-varname="winkVideoData11" height="580" muted="true" width="1000">
+<source src="./../downloads/ag11/0410-3.mp4" type="video/mp4"/></video>
+<div class="winkVideoOverlayClass"></div>
+<div class="winkVideoControlBarClass"><button class="winkVideoControlBarPlayButtonClass"></button> <button class="winkVideoControlBarPauseButtonClass"></button>
+<div class="winkVideoControlBarProgressLeftClass"></div>
+<div class="winkVideoControlBarProgressLeftClass"></div>
+<div class="winkVideoControlBarProgressEmptyMiddleClass"></div>
+</div>
+</div>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/knIP8Pfp9sQ" title="YouTube video player" width="560"></iframe></p>
+<p></p>
+<p>程式下載 : <a href="/downloads/0410.ttt">football程式</a></p>
+<p></p>
+<p>football 製作心得 :</p>
+<p>在製作本次的football作業時，有遇到一些問題，有關於sensor,記分板,與本體偵測與球體偵測的問題，遇到最嚴重的問題是球體偵測的問題，因為沒有辦法找到程式中球體的正確數值，所以都無法偵測球體的得分，所以尋求的同學的幫助，在程式中加了關於球的檢測數值，再導入程式中的數值，就可以正常的運行並遊玩了。</p><h2>ag12</h2>
 <p><span>2a-pj1ag2組員:41023114 王樟皓 41023126 卓桓琮</span></p>
 <p>github倉儲 :<a href="https://github.com/mdecd2023/2a-pj1ag12.git">https://github.com/mdecd2023/2a-pj1ag12.git</a></p>
 <p>個人網站 :<a href="https://mdecd2023.github.io/2a-pj1ag12/content/index.html">https://mdecd2023.github.io/2a-pj1ag12/content/index.html</a></p>
@@ -1337,10 +1428,15 @@ end</pre>
 <p></p>
 <p>foodball的coppeliasim機器人對戰:</p>
 <p><img alt="" height="550" src="/images/footballcoppliasim.png" width="977"/></p>
+<<<<<<< HEAD
 <p><a href="/downloads/football coppeliasim.ttt">機器人對戰Coppeliasim.ttt</a></p>
 <p></p>
 <p>因為Wink尚未做好，所以先以圖片來顯示作業進度</p>
 <p></p><h2>ag14</h2>
+=======
+<p>因為Wink尚未做好，所以先以圖片來顯示作業進度</p>
+<h2>ag14</h2>
+>>>>>>> 45c90e176faa381a420f09ab486603645beb5f94
 <p></p>
 <p><a href="/downloads/ag14/ag14_cd_report.pdf">ag14_cd_report.pdf</a></p>
 <p><strong>球場及感測器建立</strong></p>
@@ -1498,7 +1594,8 @@ end</pre>
 <p></p>
 <p>41023154心得:最後連線遊玩的部分沒有做出來，過程中感測器沒辦法感測的問題和上傳問題一開始有透過chatgpt來問問題，但可能是我問的方式不太對，chatgpt的回應都跟我要的答案不太一樣，後面通過問同學的方式解決了，感謝幫助我們的同學。</p>
 <p>41023135林政蔚心得:pj1遇到問題大部分都問ChatGPT，尤其是程式碼，像是記分板的程式碼。不過在問GPT的時候常常會出現無法使用的一些細微錯誤，還要找出其中錯誤的點。</p>
-<p></p><h2>ag17</h2>
+<p></p>
+<h2>ag17</h2>
 <p>2a-pj1ag17組員:41023120呂昕叡、41023118吳政憲</p>
 <p>pj1倉儲:<a href="https://github.com/mdecd2023/2a-pj1ag17">https://github.com/mdecd2023/2a-pj1ag17</a></p>
 <p>pj1網頁:<a href="https://mdecd2023.github.io/2a-pj1ag17/content/football.html">https://mdecd2023.github.io/2a-pj1ag17/content/football.html</a></p>
@@ -1554,4 +1651,9 @@ var winkVideoData12 = {
 <p>1 足球場</p>
 <div class="winkVideoContainerClass"><video autoplay="autoplay" class="winkVideoClass" controls="controls" data-dirname="/static" data-varname="winkVideoData_41023105" height="630" muted="true" width="1008">
 <source src="./../downloads/ag20/足球.mp4" type="video/mp4"/></video></div>
-<p></p></div></div></div></div></div>
+<p></p>
+</div>
+</div>
+</div>
+</div>
+</div>
