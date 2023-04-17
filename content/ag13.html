@@ -145,6 +145,66 @@ img.add_border {
 <p><span>2a-pj1ag13組員:41023133、41023140</span></p>
 <p>pj1ag4倉儲:<a href="https://github.com/mdecd2023/2a-pj1ag13.git">https://github.com/mdecd2023/2a-pj1ag13.git</a></p>
 <p>pj1ag4網頁:<a href="https://mdecd2023.github.io/2a-pj1ag13/content/index.html">https://mdecd2023.github.io/2a-pj1ag13/content/index.html</a></p>
+<p></p>
+<p>用鍵盤控制<a href="./../downloads/BubbleRob13.ttt">BubbleRob</a>:</p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/eCp3avFJlRc" title="YouTube video player" width="560"></iframe></p>
+<p></p>
+<pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">function sysCall_init()  
+    right_wheel= sim.getObjectHandle('joint1') 
+    left_wheel= sim.getObjectHandle('joint2') 
+    right_velocity=0 
+    left_velocity=0
+    speed=5
+    sim.setJointTargetVelocity(right_wheel,0)
+    sim.setJointTargetVelocity(left_wheel,0)
+ 
+end
+  
+function sysCall_actuation()  
+    message,auxiliaryData=sim.getSimulatorMessage() 
+    while message~=-1 do
+        if (message==sim.message_keypress) then
+            
+            if (auxiliaryData[1]==32) then
+
+                right_velocity=0 
+                left_velocity=0 
+                sim.setJointMaxForce(right_wheel, 0) 
+                sim.setJointMaxForce(left_wheel, 0) 
+                break
+            else
+                sim.setJointMaxForce(right_wheel, 10) 
+                sim.setJointMaxForce(left_wheel, 10)
+            
+            
+                if (auxiliaryData[1]==2007) then -- up key
+                    
+                    sim.setJointTargetVelocity(right_wheel,speed)
+                    sim.setJointTargetVelocity(left_wheel,speed)
+                end
+                if (auxiliaryData[1]==2008) then -- down key
+                    
+                    sim.setJointTargetVelocity(right_wheel,-speed/2)
+                    sim.setJointTargetVelocity(left_wheel,-speed/2)
+                    
+                end
+                if (auxiliaryData[1]==2009) then -- left key
+                    sim.setJointTargetVelocity(right_wheel,speed)
+                    sim.setJointTargetVelocity(left_wheel,speed/2)
+                   
+                end
+                if (auxiliaryData[1]==2010) then -- right key
+                    sim.setJointTargetVelocity(right_wheel,speed/2)
+                    sim.setJointTargetVelocity(left_wheel,speed)
+                    
+                end
+
+            end
+        end
+        message,auxiliaryData=sim.getSimulatorMessage()
+    end
+end</pre>
+<p></p>
 <p>football場景設置:</p>
 <p><img alt="" height="535" src="./../images/football.png" width="951"/></p>
 <p></p>
