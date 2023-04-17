@@ -1273,22 +1273,70 @@ while True:
 <p>用鍵盤控制<a href="/downloads/BubbleRob13.ttt">BubbleRob</a>:</p>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/eCp3avFJlRc" title="YouTube video player" width="560"></iframe></p>
 <p></p>
+<pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">function sysCall_init()  
+    right_wheel= sim.getObjectHandle('joint1') 
+    left_wheel= sim.getObjectHandle('joint2') 
+    right_velocity=0 
+    left_velocity=0
+    speed=5
+    sim.setJointTargetVelocity(right_wheel,0)
+    sim.setJointTargetVelocity(left_wheel,0)
+ 
+end
+  
+function sysCall_actuation()  
+    message,auxiliaryData=sim.getSimulatorMessage() 
+    while message~=-1 do
+        if (message==sim.message_keypress) then
+            
+            if (auxiliaryData[1]==32) then
+
+                right_velocity=0 
+                left_velocity=0 
+                sim.setJointMaxForce(right_wheel, 0) 
+                sim.setJointMaxForce(left_wheel, 0) 
+                break
+            else
+                sim.setJointMaxForce(right_wheel, 10) 
+                sim.setJointMaxForce(left_wheel, 10)
+            
+            
+                if (auxiliaryData[1]==2007) then -- up key
+                    
+                    sim.setJointTargetVelocity(right_wheel,speed)
+                    sim.setJointTargetVelocity(left_wheel,speed)
+                end
+                if (auxiliaryData[1]==2008) then -- down key
+                    
+                    sim.setJointTargetVelocity(right_wheel,-speed/2)
+                    sim.setJointTargetVelocity(left_wheel,-speed/2)
+                    
+                end
+                if (auxiliaryData[1]==2009) then -- left key
+                    sim.setJointTargetVelocity(right_wheel,speed)
+                    sim.setJointTargetVelocity(left_wheel,speed/2)
+                   
+                end
+                if (auxiliaryData[1]==2010) then -- right key
+                    sim.setJointTargetVelocity(right_wheel,speed/2)
+                    sim.setJointTargetVelocity(left_wheel,speed)
+                    
+                end
+
+            end
+        end
+        message,auxiliaryData=sim.getSimulatorMessage()
+    end
+end</pre>
+<p></p>
 <p>football場景設置:</p>
 <p><img alt="" height="535" src="/images/football.png" width="951"/></p>
 <p></p>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<p><a href="/downloads/cd_report.pdf">/downloads/cd_report.pdf</a></p>
-=======
-<p><a href="/downloads/ag14/cd_report.pdf">ag14_cd_report.pdf</a></p>
->>>>>>> 4b76adb6c5cb02cab15fa8900b34384ad306eb26
-=======
 <p>foodball的coppeliasim機器人對戰:</p>
 <p><img alt="" height="550" src="/images/footballcoppliasim.png" width="977"/></p>
 <p>因為Wink尚未做好，所以先以圖片來顯示作業進度</p><h2>ag14</h2>
 <p></p>
-<p><a href="/downloads/ag14_cd_report.pdf">ag14_cd_report.pdf</a></p>
->>>>>>> 861f6f83bb7a8c588802a2957a1116bb065f37d5
+<p><a href="/downloads/ag14/ag14_cd_report.pdf">ag14_cd_report.pdf</a></p>
 <p><strong>球場及感測器建立</strong></p>
 <div class="winkVideoContainerClass"><video autoplay="autoplay" class="winkVideoClass" controls="controls" data-dirname="/cmsimde/static" data-varname="winkVideoData_w2_1" height="600" muted="true" width="800"><source src="/downloads/ag14/football.mp4" type="video/mp4"/></video></div>
 <div class="winkVideoContainerClass"></div>
@@ -1498,7 +1546,6 @@ var winkVideoData12 = {
 <div class="winkVideoControlBarProgressLeftClass">
 <h2>ag20</h2>
 <p>1 足球場</p>
-<div class="winkVideoContainerClass"><video autoplay="autoplay" class="winkVideoClass" controls="controls" data-dirname="/cmsimde/static" data-varname="winkVideoData_w2_1" height="600" muted="true" width="800">
-<source src="/downloads/足球.mp4" type="video/mp4"/></video>
-<p></p>
-</div></div></div></div></div></div>
+<div class="winkVideoContainerClass"><video autoplay="autoplay" class="winkVideoClass" controls="controls" data-dirname="/static" data-varname="winkVideoData_41023105" height="630" muted="true" width="1008">
+<source src="./../downloads/ag20/足球.mp4" type="video/mp4"/></video></div>
+<p></p></div></div></div></div></div>
